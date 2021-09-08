@@ -5,7 +5,7 @@ services:
     build:
       context: ./files
       dockerfile: Dockerfile
-    env_file: dot.env
+    env_file: ./dot.env
     working_dir: /app
     ports:
       - ${FROTN_PORT}:3000
