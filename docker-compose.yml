@@ -12,8 +12,8 @@ services:
     volumes:
       - ./app:/app
       - ./_roothome/:/root
-    depends_on:
-      - db
+    # depends_on:
+    #   - db
     tty: true
     stdin_open: true
 
@@ -32,5 +32,5 @@ services:
   #   tty: true
   #   stdin_open: true
 
-volumes:
-    db-data:
+# volumes:
+#     db-data:
