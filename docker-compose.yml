@@ -5,12 +5,12 @@ services:
     build:
       context: ./files
       dockerfile: Dockerfile
-    env_file: ./dot.env
+    env_file: .env
     working_dir: /app
     ports:
       - ${FROTN_PORT}:3000
     volumes:
-      - "./app:/app"
+      - ./app:/app
       - ./_roothome/:/root
     depends_on:
       - db
