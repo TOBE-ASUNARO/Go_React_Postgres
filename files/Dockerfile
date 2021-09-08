@@ -31,8 +31,8 @@ RUN apk update \
     && apk add --update --no-cache less \
     && apk add --update --no-cache ${RUNTIME_PACKAGES} \
     && apk add --update --no-cache --virtual=.build-dependencies ${DEV_PACKAGES} \
-    && bundle install --jobs=4 \
-    && yarn install \
+    # && bundle install --jobs=4 \
+    # && yarn install \
     && rm -rf /usr/local/bundle/cache/*.gem \
         && find /usr/local/bundle/gems/ -name "*.c" -delete \
         && find /usr/local/bundle/gems/ -name "*.o" -delete \
