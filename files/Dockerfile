@@ -33,9 +33,10 @@ RUN apk update \
     && apk add --update --no-cache --virtual=.build-dependencies ${DEV_PACKAGES} \
     # && bundle install --jobs=4 \
     # && yarn install \
-    && rm -rf /usr/local/bundle/cache/*.gem \
-        && find /usr/local/bundle/gems/ -name "*.c" -delete \
-        && find /usr/local/bundle/gems/ -name "*.o" -delete \
+    
+    # && rm -rf /usr/local/bundle/cache/*.gem \
+    #     && find /usr/local/bundle/gems/ -name "*.c" -delete \
+    #     && find /usr/local/bundle/gems/ -name "*.o" -delete \
     && apk del --purge .build-dependencies \
     && rm -rf /var/cache/apk/ && mkdir /var/cache/apk/
 
