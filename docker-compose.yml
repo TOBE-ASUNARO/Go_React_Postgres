@@ -1,4 +1,4 @@
-version: '3.9'
+version: '3'
   services:
     node:
       build:
@@ -15,7 +15,6 @@ version: '3.9'
       #   - db
       tty: true
       stdin_open: true
-
 
     # db:
     #   image: mariadb:10.5.9
