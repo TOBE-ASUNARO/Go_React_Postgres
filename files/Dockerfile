@@ -1,4 +1,4 @@
-FROM 14-alpine3.12,
+FROM 14-alpine3.12
 
 ENV LANG C.UTF-8
 ENV APP_HOME /app
