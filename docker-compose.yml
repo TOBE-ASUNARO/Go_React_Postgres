@@ -1,20 +1,5 @@
 version: '3'
 services:
-  # db:
-  #   image: mariadb:10.5.9
-  #   restart: always
-  #   ports:
-  #     - ${DB_PORT}:3306
-  #   volumes:
-  #     - db-data:/var/lib/mysql
-  #   environment:
-  #     MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-  #   env_file: .env
-  #   tty: true
-  #   stdin_open: true
-# volumes:
-#     db-data:
-
   db:
     build:
       context: ./files
@@ -56,7 +41,7 @@ services:
 
   web:
     image: nginx:alpine
-    # env_file: .env
+    env_file: .env
     depends_on:
       - node
     volumes:

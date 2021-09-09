@@ -9,13 +9,26 @@
 
 
 ## 3) 起動するサーバの内容
-1. nginx リバースプロキシ
-1. node
-1. postgres; usr:root pw:password
+1. nginx リバースプロキシ* : localhost:8888
+1. node : localhost:3000
+1. postgres; usr:root pw:password, port 5432  
 1. swagger-edit: http://loccalhost:10081
 1. swagger-ui: http://loccalhost:10082
 1. swagger-mock**: http://loccalhost:10083
 
-**
+*
+node.js 側での設定も必要  
+具体的には、vue cli なら、カレントに、vue.config.js をつくり、  
+```shell
+module.exports = {
+  devServer: {
+    disableHostCheck: true
+  }
+}
+```
+を記載  
+  
+**  
 モックサーバーは、stoplight/prism:4  
-/openapi/api_reference.yamlで、内容を定義
+/openapi/api_reference.yamlで、内容を定義  
+
