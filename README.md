@@ -9,6 +9,7 @@
 
 
 ## 3) 起動するサーバの内容
+1. nginx リバースプロキシ
 1. node
 1. postgres; usr:root pw:password
 1. swagger-edit: http://loccalhost:10081
