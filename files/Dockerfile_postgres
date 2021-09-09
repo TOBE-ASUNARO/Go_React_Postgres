@@ -1,0 +1,33 @@
+FROM postgres:alpine
+
+ENV LANG C.UTF-8
+ENV TZ Asia/Tokyo
+# ENV HOST 0.0.0.0
+# ENV PORT 3000
+
+# ---------環境で、書き換えを--------
+ENV DEV_PACKAGES "build-base curl-dev"
+ENV RUNTIME_PACKAGES "vim git bash curl openssh openssl openssl-dev make tzdata coreutils"
+
+# 作業ディレクトリを指定
+# WORKDIR ${APP_HOME}
+
+# ローカルのfileをDokcerコンテナ内ににコピー
+  # ADD Gemfile ${APP_HOME}/Gemfile
+  # ADD Gemfile.lock ${APP_HOME}/Gemfile.lock
+
+#　WORKDIR ${APP_HOME}ディレクトリ上で以下の処理を実行（インストール、コマンド等）
+RUN apk update \
+    && apk upgrade \
+    && apk add --update --no-cache less \
+    && apk add --update --no-cache ${RUNTIME_PACKAGES} \
+    && apk add --update --no-cache --virtual=.build-dependencies ${DEV_PACKAGES} \
+    && apk del --purge .build-dependencies \
+    && rm -rf /var/cache/apk/ && mkdir /var/cache/apk/
+
+# コンテナ内のカレントDriのデータを,WORKDIR ${APP_HOME}ディレクトリにコピーする
+# COPY . ${APP_HOME}
+
+# EXPOSE ${PORT}
+
+# CMD ["rails", "server", "-b", "0.0.0.0"]

@@ -1,0 +1,48 @@
+FROM node:14-alpine3.12
+
+ENV LANG C.UTF-8
+ENV APP_HOME /app
+ENV TZ Asia/Tokyo
+ENV HOST 0.0.0.0
+ENV PORT 3000
+
+# ---------環境で、書き換えを--------
+ENV DEV_PACKAGES "build-base curl-dev"
+ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers vim git bash curl openssh openssl openssl-dev make yarn tzdata coreutils postgresql-client"
+
+# 作業ディレクトリを指定
+WORKDIR ${APP_HOME}
+
+# ローカルのfileをDokcerコンテナ内ににコピー
+  # ADD Gemfile ${APP_HOME}/Gemfile
+  # ADD Gemfile.lock ${APP_HOME}/Gemfile.lock
+
+# RUN mkdir -p $APP_HOME
+# RUN mkdir -p /rails_app2 /rails_app3
+# COPY src/Gemfile Gemfile
+# COPY src/Gemfile.lock Gemfile.lock
+# RUN bundle install
+# COPY . $APP_HOME
+
+
+#　WORKDIR ${APP_HOME}ディレクトリ上で以下の処理を実行（インストール、コマンド等）
+RUN apk update \
+    && apk upgrade \
+    && apk add --update --no-cache less \
+    && apk add --update --no-cache ${RUNTIME_PACKAGES} \
+    && apk add --update --no-cache --virtual=.build-dependencies ${DEV_PACKAGES} \
+    # && bundle install --jobs=4 \
+    # && yarn install \
+    # && rm -rf /usr/local/bundle/cache/*.gem \
+    #     && find /usr/local/bundle/gems/ -name "*.c" -delete \
+    #     && find /usr/local/bundle/gems/ -name "*.o" -delete \
+    && apk del --purge .build-dependencies \
+    && rm -rf /var/cache/apk/ && mkdir /var/cache/apk/
+
+# コンテナ内のカレントDriのデータを,WORKDIR ${APP_HOME}ディレクトリにコピーする
+COPY . ${APP_HOME}
+
+
+EXPOSE ${PORT}
+
+# CMD ["rails", "server", "-b", "0.0.0.0"]
