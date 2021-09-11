@@ -1,6 +1,6 @@
 # フロント用開発環境 by Docker
 
-## 1) .env ファイルを作る。（環境設定ファイル）
+## 1) .env ファイルを作る。（環境設定ファイル.）
 
 1. git clone して、できた TOP の Dir にて作業（docker-compose.yml のある Dir)
 1. dot.env_CopyThisFileTo.env を、コピーして、.env ファイルを作成。
