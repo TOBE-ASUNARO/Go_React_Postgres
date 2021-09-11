@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSave": true, // <-- prettierで整形
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true // <-- eslintでリント
+  },
+  // デフォルトフォーマッタをprettierに
+  // Format を動作させない設定を有効化
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "[markdown]": {
+    "editor.formatOnSave": false
+  },
+
+  // vscodeプラグインの使用を促すため設定(extensions.jsonに定義)
+  "extensions.ignoreRecommendations": false
+}
