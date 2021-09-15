@@ -30,7 +30,7 @@ services:
     env_file: .env
     working_dir: /app
     ports:
-      - ${FROTN_PORT}:3000
+      - ${FRONT_PORT}:3000
     volumes:
       - ./app:/app
       - ./_roothome/:/root
