@@ -1,7 +1,7 @@
 FROM node:14-alpine3.12
 
 ENV LANG C.UTF-8
-ENV APP_HOME /app
+ENV APP_HOME /Front
 ENV TZ Asia/Tokyo
 ENV HOST 0.0.0.0
 ENV PORT 3000

@@ -31,11 +31,11 @@ services:
       context: ./files
       dockerfile: Dockerfile_node
     env_file: .env
-    working_dir: /app
+    working_dir: /Front
     ports:
       - ${FRONT_PORT}:3000
     volumes:
-      - ./app:/app
+      - ./Front:/Front
       - ./_roothome/:/root
     depends_on:
       - db
