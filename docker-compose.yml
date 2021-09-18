@@ -33,7 +33,7 @@ services:
     env_file: .env
     working_dir: /Back
     ports:
-      - ${FRONT_PORT}:8000
+      - ${BACK_PORT}:8000
     volumes:
       - ./Back:/Back
       - ./_go_roothome/:/root
