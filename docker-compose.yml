@@ -26,6 +26,22 @@ services:
     hostname: postgres
     user: root
 
+  go:
+    build:
+      context: ./files
+      dockerfile: Dockerfile_go
+    env_file: .env
+    working_dir: /Back
+    ports:
+      - ${FRONT_PORT}:8000
+    volumes:
+      - ./Back:/Back
+      - ./_go_roothome/:/root
+    depends_on:
+      - db
+    tty: true
+    stdin_open: true
+
   node:
     build:
       context: ./files
@@ -36,7 +52,7 @@ services:
       - ${FRONT_PORT}:3000
     volumes:
       - ./Front:/Front
-      - ./_roothome/:/root
+      - ./_node_roothome/:/root
     depends_on:
       - db
     tty: true
