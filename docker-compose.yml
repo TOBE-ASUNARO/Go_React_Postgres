@@ -13,7 +13,10 @@ services:
     volumes:
       - ./files/postgres/init:/docker-entrypoint-initdb.d
       # - ./files/postgres/data:/var/lib/postgresql/data
-      - ./files/postgres/data:/var/lib/postgresql/data/pgdata
+      # - ./files/postgres/data:/var/lib/postgresql/data/pgdata
+      # db 周りで、パミッションの調整がうまくいかないので、とりあえず
+      # docker aria のボリュームに保存
+      - db-data:/var/lib/postgresql/data/pgdata
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -71,3 +74,5 @@ services:
     command: mock -h 0.0.0.0 /openapi/api_reference.yaml
     volumes:
       - ./openapi/api_reference.yaml:/openapi/api_reference.yaml
+volumes:
+  db-data:
