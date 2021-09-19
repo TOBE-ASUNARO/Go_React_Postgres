@@ -58,30 +58,30 @@ services:
     tty: true
     stdin_open: true
 
-  web:
-    image: nginx:alpine
-    env_file: .env
-    depends_on:
-      - node
-    volumes:
-      - ./files/nginx/conf.d:/etc/nginx/conf.d
-    ports:
-      - ${WEB_PORT}:80
+  # web:
+  #   image: nginx:alpine
+  #   env_file: .env
+  #   depends_on:
+  #     - node
+  #   volumes:
+  #     - ./files/nginx/conf.d:/etc/nginx/conf.d
+  #   ports:
+  #     - ${WEB_PORT}:80
 
-  swagger-editor:
-    image: swaggerapi/swagger-editor
-    container_name: "swagger-editor"
-    ports:
-      - "10081:8080"
-  swagger-ui:
-    image: swaggerapi/swagger-ui
-    container_name: "swagger-ui"
-    ports:
-      - "10082:8080"
-    volumes:
-      - ./openapi/api_reference.yaml:/usr/share/nginx/html/api_reference.yaml
-    environment:
-      API_URL: api_reference.yaml
+  # swagger-editor:
+  #   image: swaggerapi/swagger-editor
+  #   container_name: "swagger-editor"
+  #   ports:
+  #     - "10081:8080"
+  # swagger-ui:
+  #   image: swaggerapi/swagger-ui
+  #   container_name: "swagger-ui"
+  #   ports:
+  #     - "10082:8080"
+  #   volumes:
+  #     - ./openapi/api_reference.yaml:/usr/share/nginx/html/api_reference.yaml
+  #   environment:
+  #     API_URL: api_reference.yaml
   swagger-mock:
     image: stoplight/prism:4
     container_name: "swagger-mock"
