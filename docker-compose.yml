@@ -37,10 +37,13 @@ services:
     volumes:
       - ./Back:/Back
       - ./_go_roothome/:/root
+      - gopath:/go
     depends_on:
       - db
     tty: true
     stdin_open: true
+    environment:
+      - "GOPATH=/Back"
 
   node:
     build:
@@ -92,3 +95,4 @@ services:
       - ./openapi/api_reference.yaml:/openapi/api_reference.yaml
 volumes:
   db-data:
+  gopath:
