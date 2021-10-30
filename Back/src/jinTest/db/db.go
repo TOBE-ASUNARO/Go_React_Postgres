@@ -1,8 +1,8 @@
 package db
 
 import (
-  "gorm.io/gorm"
   "gorm.io/driver/postgres"
+  "gorm.io/gorm"
 )
 
 var (
@@ -12,7 +12,13 @@ var (
 
 // init
 func Init() {
-  db, err = gorm.Open(postgres.Open("db"), &gorm.Config{})
+
+
+//
+  dsn := "host=db user=root password=password dbname=postgres port=5432 sslmode=disable TimeZone=Asia/Tokyo"
+  db, err = gorm.Open(postgres.Open(dsn), &gorm.Config{})
+//
+
 
 // DB接続
 //   db, err = gorm.Open("postgres", "db")

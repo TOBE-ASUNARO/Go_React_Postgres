@@ -23,11 +23,12 @@ func router() *gin.Engine {
   r.Use(CORS())
 
   // ルーティング
-  u := r.Group("/users")
-  {
+  //u := r.Group("/users")
+  //{
     ctrl := user.Controller{}
-    u.GET("", ctrl.Index)
-  }
+    //u.GET("", ctrl.Index)
+    r.GET("/", ctrl.Index)
+  //}
 
   return r
 }

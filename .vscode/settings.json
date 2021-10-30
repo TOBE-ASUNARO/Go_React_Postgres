@@ -11,5 +11,6 @@
   },
 
   // vscodeプラグインの使用を促すため設定(extensions.jsonに定義)
-  "extensions.ignoreRecommendations": false
+  "extensions.ignoreRecommendations": false,
+  "git.ignoreLimitWarning": true
 }

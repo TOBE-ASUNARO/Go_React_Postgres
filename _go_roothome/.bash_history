@@ -103,3 +103,31 @@ cd
 ls
 env
 exit
+l
+ls
+cd src
+l
+ls
+cd jinTest/
+ls
+./jinTest 
+ls
+go build
+ls
+cd ..
+l
+ls
+cd jinTest/
+go build
+ls
+ls -al
+./jinTest 
+./jinTest 
+ls
+./jinTest 
+ls
+./jinTest 
+ls -al
+go build
+./jinTest 
+exit

@@ -7,12 +7,13 @@ import (
 
 type Service struct{}
 
-type user entity.User
+type User entity.User
 
 type Parameter struct {
   sei string
   mei string
 }
+
 
 // 検索
 func (s Service) Search(sei string, mei string) ([]User, error) {
@@ -36,13 +37,13 @@ func (s Service) Search(sei string, mei string) ([]User, error) {
   tx = tx.Find(&user)
 
   // タイトル
-  if p.title != "" {
-    tx = tx.Where("sei = ?", p.sei).Find(&user)
+  if p.sei != "" {
+    tx = tx.Where("name_sei = ?", p.sei).Find(&user)
   }
 
   // カテゴリ
-  if p.category != 0 {
-    tx = tx.Where("mei = ?", p.mei).Find(&user)
+  if p.mei != "" {
+    tx = tx.Where("name_mei = ?", p.mei).Find(&user)
   }
 
   return user, nil

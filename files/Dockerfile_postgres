@@ -25,7 +25,7 @@ RUN apk update \
     && apk del --purge .build-dependencies \
     && rm -rf /var/cache/apk/ && mkdir /var/cache/apk/
 
-# コンテナ内のカレントDriのデータを,WORKDIR ${APP_HOME}ディレクトリにコピーする
+# ローカルから,WORKDIR ${APP_HOME}ディレクトリに値をコピーする
 # COPY . ${APP_HOME}
 
 # EXPOSE ${PORT}

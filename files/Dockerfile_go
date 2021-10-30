@@ -6,6 +6,10 @@ ENV TZ Asia/Tokyo
 ENV HOST 0.0.0.0
 ENV PORT 8000
 
+ENV GOPATH /Back
+ENV PATH $PATH:/go/bin:$GOPATH/bin
+
+
 # ---------環境で、書き換えを--------
 ENV DEV_PACKAGES "build-base curl-dev"
 ENV RUNTIME_PACKAGES "gcc g++ libc-dev libxml2-dev linux-headers vim git bash curl openssh openssl openssl-dev make tzdata coreutils postgresql-client"
@@ -39,9 +43,8 @@ RUN apk update \
     && apk del --purge .build-dependencies \
     && rm -rf /var/cache/apk/ && mkdir /var/cache/apk/
 
-# コンテナ内のカレントDriのデータを,WORKDIR ${APP_HOME}ディレクトリにコピーする
-COPY . ${APP_HOME}
-
+# ローカルから,WORKDIR ${APP_HOME}ディレクトリに値をコピーする
+# COPY /Back/ ${APP_HOME}/
 
 EXPOSE ${PORT}
 
