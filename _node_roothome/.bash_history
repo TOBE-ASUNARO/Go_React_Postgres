@@ -29,3 +29,18 @@ yarn -dev
 less package.json 
 yarn dev
 exit
+ls
+cd todoApp/
+ls
+yarn dev
+exit
+ls
+cd todoApp/
+l
+ls
+yarn -dev
+yarn dev
+ls
+yarn add axios
+yarn dev
+exit

@@ -131,3 +131,20 @@ ls -al
 go build
 ./jinTest 
 exit
+ls
+cd bin
+ls
+ls -al
+ls
+ls
+cd ..
+ls
+ls
+cd src
+ls
+ls
+cd jinTest/
+l
+ls
+./jinTest 
+exit

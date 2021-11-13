@@ -7,7 +7,7 @@ ENV TZ Asia/Tokyo
 
 # ---------環境で、書き換えを--------
 ENV DEV_PACKAGES "build-base curl-dev"
-ENV RUNTIME_PACKAGES "vim git bash curl openssh openssl openssl-dev make tzdata coreutils"
+ENV RUNTIME_PACKAGES "vim git bash curl openssh openssl openssl-dev make tzdata coreutils postgresql-client"
 
 # 作業ディレクトリを指定
 # WORKDIR ${APP_HOME}
