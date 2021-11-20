@@ -148,3 +148,10 @@ l
 ls
 ./jinTest 
 exit
+ls
+cd src
+ls
+cd jinTest/
+ls
+./jinTest 
+exit

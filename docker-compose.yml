@@ -90,14 +90,14 @@ services:
   #     - ./openapi/api_reference.yaml:/usr/share/nginx/html/api_reference.yaml
   #   environment:
   #     API_URL: api_reference.yaml
-  swagger-mock:
-    image: stoplight/prism:4
-    container_name: "swagger-mock"
-    ports:
-      - "10083:4010"
-    command: mock -h 0.0.0.0 /openapi/api_reference.yaml
-    volumes:
-      - ./openapi/api_reference.yaml:/openapi/api_reference.yaml
+  # swagger-mock:
+  #   image: stoplight/prism:4
+  #   container_name: "swagger-mock"
+  #   ports:
+  #     - "10083:4010"
+  #   command: mock -h 0.0.0.0 /openapi/api_reference.yaml
+  #   volumes:
+  #     - ./openapi/api_reference.yaml:/openapi/api_reference.yaml
 volumes:
   db-data:
   gopath:
