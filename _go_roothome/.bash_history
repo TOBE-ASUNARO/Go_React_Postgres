@@ -155,3 +155,13 @@ cd jinTest/
 ls
 ./jinTest 
 exit
+l
+ls
+cd src
+ls
+cd jinTest/
+ls
+./jinTest 
+eixt
+exuit
+exit

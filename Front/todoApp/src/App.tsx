@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg'
 import './App.css'
 import axios from "axios"
+import Router from './Router';
+
 
 function App () {
   const [count, setCount] = useState(0)
@@ -89,6 +91,7 @@ function App () {
         </p>
                 
       </header>
+      <Router />
     </div>
   )
 }
