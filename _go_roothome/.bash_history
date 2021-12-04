@@ -165,3 +165,5 @@ ls
 eixt
 exuit
 exit
+env
+exit
