@@ -10,7 +10,6 @@ const Top = ({ match, history, location }: Props) => {
     <div>
       <Link to="/page1">Page 1</Link>
       <Link to="/page2">Page 2</Link>
-      <p label="Hello World!"></p>
     </div>
   );
 };

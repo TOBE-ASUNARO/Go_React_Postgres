@@ -167,3 +167,10 @@ exuit
 exit
 env
 exit
+ls
+cd src
+ls
+cd jinTest/
+./jinTest 
+eixt
+exit
