@@ -2,6 +2,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/ruby,rails,vue,visualstudiocode,jetbrains,windows,macos,linux,git,node,react,eclipse
 # Edit at https://www.toptal.com/developers/gitignore?templates=ruby,rails,vue,visualstudiocode,jetbrains,windows,macos,linux,git,node,react,eclipse
 
+### node root home, go root home
+_node_roothome/
+_go_roothome/
+Back/pkg/
+
+
 ### Eclipse ###
 .metadata
 bin/
@@ -211,7 +217,8 @@ fabric.properties
 .LSOverride
 
 # Icon must end with two \r
-Icon
+Icon
+
 
 # Thumbnails
 ._*

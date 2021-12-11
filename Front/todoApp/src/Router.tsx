@@ -11,7 +11,6 @@ const Router = () => {
   <BrowserRouter>
       <Route exact={true} path="/" component={Top} />
       <Route path="/page1" component={Page1} />
-      <Route path="/page1" component={Page2} />
       <Route path="/page2" component={Page2} />
        {/* Not Found */}
       {/* <Route component={() => <Redirect to="/" />} /> */}
