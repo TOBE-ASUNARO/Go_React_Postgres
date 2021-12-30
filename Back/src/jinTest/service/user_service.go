@@ -1,6 +1,7 @@
 package user
 
 import (
+  "github.com/gin-gonic/gin"
   "jinTest/db"
   "jinTest/entity"
 )
@@ -47,4 +48,20 @@ func (s Service) Search(sei string, mei string) ([]User, error) {
   }
 
   return user, nil
+}
+
+//更新 update
+func (s Service) UpdateByID(id int, c *gin.Context) (User, error) {
+  db := db.GetDB()
+  var u User
+  if err := db.Where("id = ?", id).First(&u).Error; err != nil {
+    return u, err
+  }
+  if err := c.BindJSON(&u); err != nil {
+    return u, err
+  }
+  u.Id = uint(id)
+  db.Save(&u)
+
+  return u, nil
 }

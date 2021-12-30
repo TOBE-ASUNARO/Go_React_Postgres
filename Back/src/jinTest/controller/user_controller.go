@@ -2,9 +2,10 @@ package user
 
 import (
   "fmt"
-  "net/http"
   "github.com/gin-gonic/gin"
   user "jinTest/service"
+  "net/http"
+  "strconv"
 )
 
 type Controller struct{}
@@ -25,5 +26,20 @@ func (pc Controller) Index(c *gin.Context) {
     fmt.Println(err)
   } else {
     c.JSON(http.StatusOK, p)
+  }
+}
+
+// 更新
+func (pc Controller) Update(c *gin.Context) {
+  id := c.Params.ByName("id")
+  idInt, _ := strconv.Atoi(id)
+  var s user.Service
+  p, err := s.UpdateByID(idInt, c)
+
+  if err != nil {
+    c.AbortWithStatus(404)
+    fmt.Println(err)
+  } else {
+    c.JSON(200, p)
   }
 }
